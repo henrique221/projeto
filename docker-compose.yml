@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  projeto-produtos:
+    build: .
+    volumes:
+      - ./.:/projeto1
+    ports:
+      - 80:5000
+    command: bash -c "python projeto1.py"
