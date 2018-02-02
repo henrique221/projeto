@@ -7,3 +7,5 @@ class ProdutoRepository:
         return conexao.insert(produto)
     def alter(self, produto):
         return conexao.alter(produto)
+    
+    

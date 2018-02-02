@@ -1,14 +1,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <form method="post" id="form">
-    <input type='text' name='nome'>
-    <input type='number' name='preco'>
+    <input type='text' name='nome' id='nome' required placeholder="Nome do produto">
+    <input type='number' name='preco' id='preco' placeholder="Preco">
+    
     <select name='tipo'>
         <option value='1'>Alimentação</option>
     </select>
     <input type='submit'>
 </form>
 
+
+<p>{{todos_os_produtos}}</p>
 
 
 
