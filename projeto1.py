@@ -7,19 +7,14 @@ import os
 
 app = Flask(__name__, static_folder='assets')
 
-
-
 @app.route("/", methods=["GET", "POST"])
 
 def cadastrar_produto():
-    repository = ProdutoRepository(),
-    todos_os_produtos = list(produtos.all())
+    repository = ProdutoRepository()
     if request.method == "POST":
 
         dados_do_form = request.form.to_dict() 
         dados_do_form['preco'] = int(dados_do_form['preco'])         
-
-        repository = ProdutoRepository()
 
         nome_novo_produto = repository.add(dados_do_form)
         return render_template(
@@ -27,12 +22,12 @@ def cadastrar_produto():
             nome_novo_produto = dados_do_form['nome']
         )
 
+
     return render_template(
         'index.html',
         title=u"Inserir novo produto",   
-        lista_produtos = todos_os_produtos,
-        tipos = list(tipos.all())       
-        
+        lista_produtos = repository.join_produto_tipo(),
+        tipos = list(tipos.all())
     )
 
 @app.route("/tipo", methods=['GET', 'POST'])
