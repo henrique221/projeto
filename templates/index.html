@@ -1,12 +1,14 @@
+<script src="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/flatly/bootstrap.min.css" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
 {% extends 'menu.html' %}
 
 {%block content%}
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <form method="post" id="form">
     <input type='text' name='nome' id='nome' required placeholder="Nome do produto">
-    <input type='number' name='preco' id='preco' placeholder="Preco">
+    <input type='number' step='any' name='preco' id='preco' placeholder="Preco">
  
     <select name='tipo'>
             {%for tipo in tipos%}   
@@ -28,9 +30,9 @@
     
 {% for produto in lista_produtos %}
     <tr>
-        <td>{{ produto.id }}</td>
+        <td>{{ produto.id_produto }}</td>
         <td>{{ produto.nome }}</td>
-        <td>{{ produto.preco }}</td>
+        <td>R$ {{ produto.preco }}</td>
         <td>{{ produto.tipo }}</td>
     </tr>
 {%endfor%}

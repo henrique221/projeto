@@ -14,7 +14,7 @@ def cadastrar_produto():
     if request.method == "POST":
 
         dados_do_form = request.form.to_dict() 
-        dados_do_form['preco'] = int(dados_do_form['preco'])         
+        dados_do_form['preco'] = float(dados_do_form['preco'])         
 
         nome_novo_produto = repository.add(dados_do_form)
         return render_template(
