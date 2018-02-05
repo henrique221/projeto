@@ -3,16 +3,34 @@
 <form method="post" id="form">
     <input type='text' name='nome' id='nome' required placeholder="Nome do produto">
     <input type='number' name='preco' id='preco' placeholder="Preco">
-    
+ 
     <select name='tipo'>
-        <option value='1'>Alimentação</option>
+            {%for tipo in tipos%}   
+        <option value='{{tipo.id}}'> {{tipo.tipo}} </option>
+        {%endfor%}
     </select>
     <input type='submit'>
 </form>
 
 
-<p>{{todos_os_produtos}}</p>
+<table>
+    <tr>
+        <th>id</th>
+        <th>nome</th>
+        <th>preço</th>
+    </tr>
 
+    
+{% for produto in lista_produtos %}
+    <tr>
+        <td>{{ produto.id }}</td>
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.preco }}</td>
+    </tr>
+{%endfor%}
+</table>
+
+<a href='tipo'>Cadastrar tipos</a>
 
 
 

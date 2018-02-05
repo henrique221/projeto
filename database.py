@@ -1,4 +1,5 @@
 import dataset
 
 db = dataset.connect('sqlite:///produtos.db')
-conexao = db['produtos']
+produtos = db['produtos']
+tipos = db['tipos_produtos']

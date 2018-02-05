@@ -1,11 +1,13 @@
 import dataset
 
-from database import conexao
+from database import produtos, tipos
 
 class ProdutoRepository:
     def add(self, produto):
-        return conexao.insert(produto)
+        return produtos.insert(produto)
     def alter(self, produto):
-        return conexao.alter(produto)
+        return produtos.alter(produto)
+    def add_tipo(self, tipo):
+        return tipos.insert(tipo)
     
     

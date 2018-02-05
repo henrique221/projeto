@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from database import conexao
+from database import produtos, tipos
 from repository import ProdutoRepository
 from flask import Flask, request, url_for, current_app, send_from_directory, render_template, redirect
 import os
@@ -11,9 +11,9 @@ app = Flask(__name__, static_folder='assets')
 
 @app.route("/", methods=["GET", "POST"])
 
-def cadastrar():
+def cadastrar_produto():
     repository = ProdutoRepository(),
-    todos_os_produtos = list(conexao.all())
+    todos_os_produtos = list(produtos.all())
     if request.method == "POST":
 
         dados_do_form = request.form.to_dict() 
@@ -30,8 +30,27 @@ def cadastrar():
     return render_template(
         'index.html',
         title=u"Inserir novo produto",   
-        todos_os_produtos = todos_os_produtos       
+        lista_produtos = todos_os_produtos,
+        tipos = list(tipos.all())       
         
+    )
+
+@app.route("/tipo", methods=['GET', 'POST'])
+
+def cadastrar_tipo():
+    repository = ProdutoRepository()
+    
+    if request.method == "POST":
+        form = request.form.to_dict()
+        novo_tipo = repository.add_tipo(form)
+        return render_template(
+            'tipo_ok.html',
+            novo_tipo = form['tipo']
+        )
+    return render_template(
+        'tipo.html',
+        title=u"Inserir novo tipo",
+        lista_tipos = list(tipos.all())
     )
     
 
