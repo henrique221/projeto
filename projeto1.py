@@ -5,7 +5,7 @@ from repository import ProdutoRepository
 from flask import Flask, request, url_for, current_app, send_from_directory, render_template, redirect
 import os
 
-app = Flask(__name__, static_folder='assets')
+app = Flask(__name__, static_folder='templates')
 
 @app.route("/", methods=["GET", "POST"])
 

@@ -1,14 +1,17 @@
 
 {% extends 'menu.html' %}
 
+{% set tipo = "active" %}
 
 {% block content %}
-
+{{super()}}
 <body>
-        <form method="post" id="form">
-                <input type='text' name='tipo' id='tipo' required placeholder="Tipo do produto">
-                <button type='submit'>Enviar</button>
-        </form>
+
+<form method="post" id="form">
+        <input type='text' class="form-control" name='tipo' id='tipo' required placeholder="Tipo do produto">
+        <button type='submit'>Enviar</button>
+</form>
+
 </body>
 
 {% endblock %}
