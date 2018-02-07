@@ -6,6 +6,7 @@
 
 {%block content%}
 {{super()}}
+
 <div class="jumbotron">
         <h1 class="display-3">Cadastro de produtos</h1>
 <form method="post" id="form">
@@ -44,28 +45,29 @@
 
 </div>
 
+<div class="card mb-3" style="max-width: 50rem">
+        <h3 class="card-header">Nossas lojas</h3>
+        <div class="card-body">
+          <h5 class="card-title">Veja a localização de nossas lojas</h5>
+        </div>
+        <div id="map"></div>
+        <script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBj3Of-4PEERTi2qBfG72W7SvcK5TDBKro&callback=initMap">
+        </script>
+        
+</div>
+
+<script src='/templates/map.js'></script>
+
 
 
 <style>
 #map {
-    height: 400px;
+    height: 500px;
     width: 100%;
    }
 </style>
 
-<!-------------------------------------------------------->
-
-
-
-<h3>Nossas lojas</h3>
-<div id="map"></div>
-
- <!-- Replace the value of the key parameter with your own API key. -->
-<script async defer 
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBj3Of-4PEERTi2qBfG72W7SvcK5TDBKro&callback=initMap">
-</script>
-
-<script src='/templates/map.js'></script>
 
 
 {%endblock%}
